@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Política de Privacidad de Despiertapp, alarma basada en la ubicación. Conoce cómo recopilamos, utilizamos y protegemos tu información.">
+  <title>Política de Privacidad · Despiertapp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* =====================================================
+       Despiertapp · Política de Privacidad
+       Diseño premium, mobile-first, sin frameworks externos
+       ===================================================== */
+
+    /* ---------- Variables de diseño ---------- */
+    :root {
+      --accent: #1E63EB;
+      --accent-soft: #E8EFFD;
+      --heading: #1F2937;
+      --text: #374151;
+      --text-muted: #6B7280;
+      --surface: #FFFFFF;
+      --border: #E5E7EB;
+      --bg-gradient-from: #F3F4F6;
+      --bg-gradient-to: #EAF1FB;
+      --radius: 12px;
+      --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+      --shadow-soft: 0 10px 30px rgba(30, 99, 235, 0.08);
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      --ease: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ---------- Reset básico ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ---------- Cuerpo / Fondo degradado ---------- */
+    body {
+      font-family: var(--font);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+      background: linear-gradient(180deg, var(--bg-gradient-from) 0%, var(--bg-gradient-to) 100%);
+      background-attachment: fixed;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      min-height: 100vh;
+      padding: clamp(24px, 6vw, 56px) 16px;
+    }
+
+    /* ---------- Contenedor principal (Card) ---------- */
+    main {
+      max-width: 800px;
+      width: 100%;
+      margin: 0 auto;
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+    }
+
+    /* ---------- Cabecera ---------- */
+    header {
+      text-align: center;
+      padding: clamp(32px, 6vw, 48px) clamp(24px, 6vw, 56px) 0;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-radius: 999px;
+      padding: 8px 16px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .badge::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    h1 {
+      font-size: clamp(28px, 5vw, 36px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      color: var(--heading);
+      margin-bottom: 12px;
+    }
+
+    .updated {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      background: #F9FAFB;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      margin-bottom: 28px;
+    }
+
+    .updated::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #22C55E;
+      flex-shrink: 0;
+    }
+
+    /* ---------- Contenido ---------- */
+    .content {
+      padding: 8px clamp(24px, 6vw, 56px) clamp(40px, 6vw, 56px);
+    }
+
+    .lead {
+      font-size: 16px;
+      color: var(--text-muted);
+      padding: 20px 24px;
+      background: #F9FAFB;
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      margin: 8px 0 40px;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    section:last-of-type {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      font-size: clamp(18px, 3vw, 21px);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--heading);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      width: 56px;
+      height: 3px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    /* ---------- Listas ---------- */
+    ul {
+      list-style: none;
+      margin-top: 16px;
+    }
+
+    li {
+      position: relative;
+      padding: 14px 16px 14px 44px;
+      margin-bottom: 12px;
+      background: #F9FAFB;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+    }
+
+    li:last-child {
+      margin-bottom: 0;
+    }
+
+    li:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px -6px rgba(30, 99, 235, 0.25);
+      border-color: rgba(30, 99, 235, 0.35);
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      left: 18px;
+      top: 19px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-soft);
+    }
+
+    strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ---------- Enlaces ---------- */
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(30, 99, 235, 0.3);
+      transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
+      word-break: break-word;
+    }
+
+    a:hover {
+      border-bottom-color: var(--accent);
+    }
+
+    /* ---------- Contacto ---------- */
+    .contact-card {
+      background: linear-gradient(135deg, #F9FAFB 0%, var(--accent-soft) 100%);
+      border: 1px solid rgba(30, 99, 235, 0.2);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-top: 16px;
+    }
+
+    .contact-card p {
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .contact-card p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .contact-card strong {
+      font-weight: 600;
+      color: var(--heading);
+    }
+
+    /* ---------- Pie de página ---------- */
+    footer {
+      text-align: center;
+      padding: 24px clamp(24px, 6vw, 56px);
+      border-top: 1px solid var(--border);
+      background: #F9FAFB;
+      font-size: 13px;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+    }
+
+    footer .brand {
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    /* =====================================================
+       Responsivo (Mobile First)
+       ===================================================== */
+    @media (max-width: 600px) {
+      body {
+        padding: 16px 12px;
+        background: linear-gradient(180deg, var(--bg-gradient-from) 0%, #F3F4F6 100%);
+      }
+
+      main {
+        border-radius: 10px;
+      }
+
+      header {
+        text-align: left;
+      }
+
+      .lead {
+        padding: 16px 18px;
+      }
+    }
+
+    /* ---------- Reducción de movimiento ---------- */
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <span class="badge">Privacidad</span>
+      <h1>Política de Privacidad</h1>
+      <p class="updated">Última actualización: 14 de septiembre de 2026</p>
+    </header>
+
+    <div class="content">
+      <p class="lead">Esta Política de Privacidad describe cómo <strong>Despiertapp</strong> recopila, utiliza y protege la información de los usuarios. Al utilizar nuestra aplicación, aceptas las prácticas descritas en este documento.</p>
+
+      <section>
+        <h2>Uso de la Ubicación (GPS)</h2>
+        <p>Despiertapp es una alarma basada en la ubicación diseñada para despertarte al acercarte a tu destino. Para funcionar correctamente, requerimos acceso a:</p>
+        <ul>
+          <li><strong>Ubicación en segundo plano:</strong> El acceso a la ubicación (incluso cuando la app está minimizada o la pantalla del dispositivo está apagada/bloqueada) es estrictamente necesario para rastrear tu progreso, calcular la distancia al destino y activar la alarma de manera oportuna.</li>
+          <li><strong>Procesamiento local:</strong> Los datos de tu ubicación se procesan de forma local en tu dispositivo. No guardamos un historial de tus rutas en servidores externos ni compartimos tu ubicación en tiempo real con terceros para fines de seguimiento.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Servicios de Terceros y Publicidad (Versión Gratuita)</h2>
+        <p>Para mantener la versión gratuita operativa, integramos servicios de publicidad de terceros (como <strong>Google AdMob</strong>).</p>
+        <ul>
+          <li>Estos proveedores pueden recopilar y utilizar identificadores de tu dispositivo móvil y datos de uso generales para mostrar anuncios publicitarios relevantes.</li>
+          <li>Las políticas sobre cómo estos proveedores manejan la información están regidas por sus propios términos de servicio y privacidad, independientes a esta aplicación.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Compras Integradas (Modo PRO)</h2>
+        <p>Al adquirir la versión premium (<strong>Despiertapp PRO</strong>) para eliminar anuncios o desbloquear funciones de personalización:</p>
+        <ul>
+          <li>Todas las transacciones económicas se realizan mediante el sistema seguro de facturación de <strong>Google Play Billing</strong>.</li>
+          <li>El desarrollador no recopila, almacena ni tiene acceso a tu información financiera, detalles bancarios o números de tarjeta de crédito.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Seguridad y Derechos del Usuario</h2>
+        <p>El control de tus datos y permisos permanece en tus manos en todo momento:</p>
+        <ul>
+          <li>Puedes revocar el permiso de ubicación directamente desde la configuración de tu sistema operativo cuando lo desees (ten en cuenta que esto detendrá el funcionamiento de la alarma GPS).</li>
+          <li>Toda tu información personal, como los lugares guardados en favoritos o tus métricas de viaje, se almacena exclusivamente en la memoria local de tu teléfono.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Contacto</h2>
+        <p>Si tienes alguna pregunta o inquietud sobre esta Política de Privacidad, puedes comunicarte con el desarrollador:</p>
+        <div class="contact-card">
+          <p><strong>Creador:</strong> Juan Cortes</p>
+          <p><strong>Correo electrónico:</strong> <a href="mailto:juan.cortesgutie@gmail.com">juan.cortesgutie@gmail.com</a></p>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <span class="brand">Despiertapp</span> · Política de Privacidad · 2026
+    </footer>
+  </main>
+</body>
+</html>
