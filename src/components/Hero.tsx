@@ -1,12 +1,14 @@
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useScroll, useSpring } from "framer-motion";
 import {
   BellRing,
   Bus,
+  ChevronDown,
   ChevronRight,
   MapPin,
   Navigation,
   Signal,
 } from "lucide-react";
+import { useEffect } from "react";
 import { PrimaryButton, GhostButton } from "./Buttons";
 import { fadeUp, scrollToId, stagger, VIEWPORT } from "../lib/motion";
 import { PLAY_STORE_URL, TAGLINE } from "../lib/site";
@@ -138,7 +140,7 @@ function PhoneMockup() {
 
 export function Hero() {
   return (
-    <section className="relative z-10 mx-auto w-[min(100%-2rem,76rem)] pb-24 pt-36 sm:pb-32 sm:pt-44">
+    <section className="relative z-10 mx-auto flex w-[min(100%-2rem,76rem)] flex-col pb-16 pt-36 sm:pb-20 sm:pt-44">
       <div className="grid items-center gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
         <motion.div
           variants={stagger(0.1, 0.13)}
@@ -225,6 +227,51 @@ export function Hero() {
           </div>
         </motion.div>
       </div>
+
+      <ScrollIndicator />
     </section>
+  );
+}
+
+/** Indicador "desliza para ver más": flecha animada que se desvanece al hacer scroll. */
+function ScrollIndicator() {
+  const { scrollY } = useScroll();
+  const progress = useMotionValue(0);
+  const opacity = useSpring(progress, { stiffness: 120, damping: 28, mass: 0.6 });
+  const y = useSpring(progress, { stiffness: 120, damping: 28, mass: 0.6 });
+
+  useEffect(() => {
+    const update = () => {
+      const max = Math.max(window.innerHeight * 0.75, 1);
+      progress.set(Math.max(0, 1 - scrollY.get() / max));
+    };
+    update();
+    return scrollY.on("change", update);
+  }, [scrollY, progress]);
+
+  return (
+    <motion.button
+      type="button"
+      onClick={() => scrollToId("features")}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 1.1, duration: 0.8 }}
+      style={{ opacity, y }}
+      className="pointer-events-auto relative z-20 mx-auto mt-12 flex flex-col items-center gap-1 sm:mt-16 lg:mt-20"
+      aria-label="Desliza para ver las características"
+    >
+      <motion.span
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+        className="flex flex-col items-center gap-1.5"
+      >
+        <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-[12px] font-medium tracking-wide text-ink-300 backdrop-blur-md">
+          <ChevronDown className="h-3.5 w-3.5 text-sky-glow" />
+          Hay más que ver
+          <ChevronDown className="h-3.5 w-3.5 text-sky-glow" />
+        </span>
+        <ChevronDown className="h-5 w-5 text-sky-300/70" />
+      </motion.span>
+    </motion.button>
   );
 }

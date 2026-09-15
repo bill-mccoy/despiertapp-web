@@ -178,7 +178,7 @@ function TickerStrip() {
 
 export function Features() {
   return (
-    <section id="features" className="relative z-10 scroll-mt-28">
+    <section id="features" className="relative z-10 scroll-mt-28 pt-20 sm:pt-28">
       <div className="mx-auto w-[min(100%-2rem,76rem)]">
         <Stagger className="mx-auto max-w-2xl text-center">
           <StaggerItem>
