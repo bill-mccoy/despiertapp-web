@@ -25,3 +25,11 @@ export const stagger = (delay = 0.12, staggerChildren = 0.12): Variants => ({
 });
 
 export const VIEWPORT = { once: true, margin: "-80px" } as const;
+
+export function scrollToId(id: string) {
+  const matches = window.matchMedia("(prefers-reduced-motion: reduce)");
+  document.getElementById(id)?.scrollIntoView({
+    behavior: matches.matches ? "auto" : "smooth",
+    block: "start",
+  });
+}

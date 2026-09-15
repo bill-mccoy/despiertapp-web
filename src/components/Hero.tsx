@@ -8,7 +8,7 @@ import {
   Signal,
 } from "lucide-react";
 import { PrimaryButton, GhostButton } from "./Buttons";
-import { fadeUp, stagger, VIEWPORT } from "../lib/motion";
+import { fadeUp, scrollToId, stagger, VIEWPORT } from "../lib/motion";
 import { PLAY_STORE_URL, TAGLINE } from "../lib/site";
 
 /** Mockup del teléfono construido 100% con CSS: mapa, recorrido y alarma. */
@@ -183,7 +183,9 @@ export function Hero() {
             <PrimaryButton href={PLAY_STORE_URL}>
               Descargar en Google Play
             </PrimaryButton>
-            <GhostButton href="#features">Ver características</GhostButton>
+            <GhostButton onClick={() => scrollToId("features")}>
+              Ver características
+            </GhostButton>
           </motion.div>
 
           {/* Confianza */}

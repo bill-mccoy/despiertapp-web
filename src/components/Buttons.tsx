@@ -43,34 +43,59 @@ export function PrimaryButton({
 }
 
 interface GhostButtonProps {
-  href: string;
   children: ReactNode;
   className?: string;
-  external?: boolean;
+  /** Ruta/externa con <a>. Si no se pasa, se comporta como <button>. */
+  href?: string;
+  onClick?: () => void;
 }
 
 /** CTA secundario: vidrio (glassmorphism). */
 export function GhostButton({
-  href,
   children,
   className,
-  external = false,
+  href,
+  onClick,
 }: GhostButtonProps) {
+  const inner = (
+    <>
+      {children}
+      <ArrowRight className="h-4 w-4 text-sky-glow transition-transform duration-300 group-hover:translate-x-1" />
+    </>
+  );
+
+  const classes = cx(
+    "group inline-flex cursor-pointer items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-6 py-3.5 text-sm font-semibold text-ink-100 backdrop-blur-md",
+    "transition-colors duration-300 hover:border-sky-400/40 hover:bg-white/10",
+    className,
+  );
+
+  if (href) {
+    return (
+      <motion.a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        whileHover={{ scale: 1.03, y: -1 }}
+        whileTap={{ scale: 0.97 }}
+        transition={{ type: "spring", stiffness: 420, damping: 24 }}
+        className={classes}
+      >
+        {inner}
+      </motion.a>
+    );
+  }
+
   return (
-    <motion.a
-      href={href}
-      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+    <motion.button
+      type="button"
+      onClick={onClick}
       whileHover={{ scale: 1.03, y: -1 }}
       whileTap={{ scale: 0.97 }}
       transition={{ type: "spring", stiffness: 420, damping: 24 }}
-      className={cx(
-        "group inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-6 py-3.5 text-sm font-semibold text-ink-100 backdrop-blur-md",
-        "transition-colors duration-300 hover:border-sky-400/40 hover:bg-white/10",
-        className,
-      )}
+      className={classes}
     >
-      {children}
-      <ArrowRight className="h-4 w-4 text-sky-glow transition-transform duration-300 group-hover:translate-x-1" />
-    </motion.a>
+      {inner}
+    </motion.button>
   );
 }
