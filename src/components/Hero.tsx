@@ -38,8 +38,8 @@ function PhoneMockup() {
             <span className="flex items-center gap-2">
               <Signal className="h-3 w-3" strokeWidth={2.5} />
               <Wifi className="h-3 w-3" strokeWidth={2.5} />
-              <span className="relative flex h-3 w-[18px] items-center rounded-[3.5px] border border-ink-400 p-[2px]">
-                <span className="block h-full w-[75%] rounded-[1.5px] bg-emerald-400" />
+              <span className="relative flex h-3 w-[18px] items-center rounded-[3.5px] border border-ink-400 px-[2.5px]">
+                <span className="block h-[7px] w-[11px] rounded-[1.5px] bg-emerald-400" />
                 <span className="absolute -right-[1.5px] top-1/2 h-[5px] w-[2px] -translate-y-1/2 rounded-r-full bg-ink-400" />
               </span>
             </span>
@@ -58,22 +58,6 @@ function PhoneMockup() {
               fill="none"
               aria-hidden
             >
-              {/* Río */}
-              <path
-                d="M56 -6 C62 6,58 18,70 30 S86 46,106 52"
-                stroke="#0f3a68"
-                strokeWidth="5"
-                strokeLinecap="round"
-                strokeOpacity="0.55"
-              />
-              <path
-                d="M56 -6 C62 6,58 18,70 30 S86 46,106 52"
-                stroke="#1b4a80"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-                strokeOpacity="0.45"
-              />
-
               {/* Manzanas y calles en trama densa (efecto "zoom out") */}
               <defs>
                 <pattern id="cityGrid" width="8" height="8" patternUnits="userSpaceOnUse">
@@ -94,21 +78,6 @@ function PhoneMockup() {
                 </pattern>
               </defs>
               <rect width="100" height="100" fill="url(#cityGrid)" />
-
-              {/* Parque */}
-              <rect
-                x="5"
-                y="5"
-                width="18"
-                height="13"
-                rx="3"
-                fill="#0c2a20"
-                stroke="#1d5342"
-                strokeOpacity="0.55"
-                strokeWidth="0.5"
-              />
-              <circle cx="11" cy="11" r="1.4" fill="#1d5342" opacity="0.5" />
-              <circle cx="17" cy="13" r="1.1" fill="#1d5342" opacity="0.5" />
 
               {/* Avenidas principales: borde exterior */}
               <g strokeLinecap="round">
@@ -155,14 +124,14 @@ function PhoneMockup() {
                 id="busRoute"
                 d="M32 88 H64 V72 H88 V48 H64 V24 H40"
                 stroke="rgba(125,180,255,0.55)"
-                strokeWidth="2"
+                strokeWidth="1.6"
                 strokeDasharray="5 5"
                 strokeLinejoin="round"
               />
               <path
                 d="M32 88 H64 V72 H88 V48 H64 V24 H40"
                 stroke="url(#routeGrad)"
-                strokeWidth="2.6"
+                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
@@ -181,7 +150,7 @@ function PhoneMockup() {
             {/* Destino con zona de alarma */}
             <div className="absolute left-[40%] top-[24%] z-10 -translate-x-1/2 -translate-y-1/2">
               <span className="block h-16 w-16 rounded-full bg-sky-400/10 ring-2 ring-dashed ring-sky-300/40" />
-              <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+              <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-full">
                 <MapPin
                   className="relative h-7 w-7 text-sky-glow drop-shadow-[0_4px_10px_rgba(56,189,248,0.6)]"
                   size={28}
@@ -229,7 +198,7 @@ function PhoneMockup() {
                   calcMode="linear"
                   keyPoints="0;0.9;1;1;1"
                   keyTimes="0;0.8;0.88;0.93;1"
-                  rotate="auto"
+                  rotate="0"
                   path="M32 88 H64 V72 H88 V48 H64 V24 H40"
                 />
                 <circle r="10.5" fill="#2563eb" opacity="0.35" filter="url(#busGlow)" />
