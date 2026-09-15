@@ -124,16 +124,17 @@ function PhoneMockup() {
                 id="busRoute"
                 d="M32 88 H64 V72 H88 V48 H64 V24 H40"
                 stroke="rgba(125,180,255,0.55)"
-                strokeWidth="1.6"
+                strokeWidth="1.2"
                 strokeDasharray="5 5"
-                strokeLinejoin="round"
+                strokeLinecap="butt"
+                strokeLinejoin="bevel"
               />
               <path
                 d="M32 88 H64 V72 H88 V48 H64 V24 H40"
                 stroke="url(#routeGrad)"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+                strokeWidth="1.6"
+                strokeLinecap="butt"
+                strokeLinejoin="bevel"
               />
               <defs>
                 <linearGradient id="routeGrad" x1="0" y1="1" x2="1" y2="0">
@@ -219,7 +220,7 @@ function PhoneMockup() {
             </svg>
 
             {/* Chip de distancia restante */}
-            <div className="absolute bottom-3 left-3 z-10 flex items-center gap-1.5 rounded-lg border border-white/10 bg-night-900/80 px-2.5 py-1.5 text-[10px] font-bold text-white backdrop-blur-md">
+            <div className="absolute bottom-3 left-3 z-50 flex items-center gap-1.5 rounded-lg border border-white/10 bg-night-900/80 px-2.5 py-1.5 text-[10px] font-bold text-white backdrop-blur-md">
               <span className="flex h-3 w-3 shrink-0 items-center justify-center">
                 <Navigation className="h-3 w-3 text-sky-glow" />
               </span>
@@ -227,14 +228,14 @@ function PhoneMockup() {
             </div>
 
             {/* Chip del radio de alarma */}
-            <div className="absolute bottom-3 right-3 z-10 flex items-center gap-1.5 rounded-lg border border-white/10 bg-night-900/80 px-2.5 py-1.5 text-[10px] font-bold text-ink-100 backdrop-blur-md">
+            <div className="absolute bottom-3 right-3 z-50 flex items-center gap-1.5 rounded-lg border border-white/10 bg-night-900/80 px-2.5 py-1.5 text-[10px] font-bold text-ink-100 backdrop-blur-md">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
               Radio 300 m
             </div>
           </div>
 
           {/* Franja inferior "glass" con el estado de la alarma */}
-          <div className="flex items-center gap-3 px-4 py-3.5">
+          <div className="relative z-50 flex items-center gap-3 px-4 py-3.5">
             <span className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-400 to-blue-600 text-white shadow-glow-blue">
               <BellRing className="h-5 w-5" />
             </span>
