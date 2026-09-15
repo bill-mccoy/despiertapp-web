@@ -74,96 +74,71 @@ function PhoneMockup() {
                 strokeOpacity="0.45"
               />
 
-              {/* Manzanas (bloques de ciudad) */}
-              <g
-                fill="#ffffff"
-                fillOpacity="0.04"
-                stroke="#7db4ff"
-                strokeOpacity="0.07"
-                strokeWidth="0.4"
-              >
-                <rect x="2" y="3" width="12" height="13" rx="1.5" />
-                <rect x="16" y="3" width="10" height="13" rx="1.5" />
-                <rect x="30" y="3" width="10" height="13" rx="1.5" />
-                <rect x="42" y="3" width="10" height="13" rx="1.5" />
-                <rect x="56" y="3" width="10" height="13" rx="1.5" />
-                <rect x="68" y="3" width="10" height="13" rx="1.5" />
-                <rect x="2" y="22" width="24" height="20" rx="2" />
-                <rect x="30" y="22" width="9" height="20" rx="1.5" />
-                <rect x="41" y="22" width="11" height="20" rx="1.5" />
-                <rect x="56" y="22" width="10" height="20" rx="1.5" />
-                <rect x="68" y="22" width="10" height="20" rx="1.5" />
-                <rect x="82" y="22" width="15" height="20" rx="2" />
-                <rect x="2" y="45" width="24" height="19" rx="2" />
-                <rect x="30" y="45" width="9" height="19" rx="1.5" />
-                <rect x="41" y="45" width="11" height="19" rx="1.5" />
-                <rect x="56" y="45" width="10" height="19" rx="1.5" />
-                <rect x="68" y="45" width="10" height="19" rx="1.5" />
-                <rect x="2" y="67" width="11" height="18" rx="1.5" />
-                <rect x="15" y="67" width="11" height="18" rx="1.5" />
-                <rect x="30" y="67" width="9" height="18" rx="1.5" />
-                <rect x="41" y="67" width="11" height="18" rx="1.5" />
-                <rect x="56" y="67" width="10" height="18" rx="1.5" />
-                <rect x="68" y="67" width="10" height="18" rx="1.5" />
-                <rect x="82" y="67" width="15" height="18" rx="2" />
-                <rect x="2" y="90" width="24" height="8" rx="1.5" />
-                <rect x="30" y="90" width="22" height="8" rx="1.5" />
-                <rect x="56" y="90" width="22" height="8" rx="1.5" />
-                <rect x="82" y="90" width="15" height="8" rx="1.5" />
-              </g>
+              {/* Manzanas y calles en trama densa (efecto "zoom out") */}
+              <defs>
+                <pattern id="cityGrid" width="8" height="8" patternUnits="userSpaceOnUse">
+                  <rect
+                    x="1"
+                    y="1"
+                    width="6"
+                    height="6"
+                    rx="0.9"
+                    fill="#ffffff"
+                    fillOpacity="0.04"
+                    stroke="#7db4ff"
+                    strokeOpacity="0.06"
+                    strokeWidth="0.3"
+                  />
+                  <path d="M0 0H8" stroke="#223a60" strokeWidth="0.7" strokeLinecap="square" />
+                  <path d="M0 0V8" stroke="#223a60" strokeWidth="0.7" strokeLinecap="square" />
+                </pattern>
+              </defs>
+              <rect width="100" height="100" fill="url(#cityGrid)" />
 
               {/* Parque */}
               <rect
-                x="83"
-                y="47"
-                width="13"
-                height="15"
+                x="5"
+                y="5"
+                width="18"
+                height="13"
                 rx="3"
                 fill="#0c2a20"
                 stroke="#1d5342"
                 strokeOpacity="0.55"
                 strokeWidth="0.5"
               />
-              <circle cx="88" cy="54" r="1.5" fill="#1d5342" opacity="0.5" />
+              <circle cx="11" cy="11" r="1.4" fill="#1d5342" opacity="0.5" />
+              <circle cx="17" cy="13" r="1.1" fill="#1d5342" opacity="0.5" />
 
-              {/* Calles: borde exterior */}
+              {/* Avenidas principales: borde exterior */}
               <g strokeLinecap="round">
-                <path d="M0 20L100 20" stroke="#0a1730" strokeWidth="3.8" />
-                <path d="M0 44L100 44" stroke="#0a1730" strokeWidth="2.2" />
-                <path d="M0 66L100 66" stroke="#0a1730" strokeWidth="2.2" />
-                <path d="M0 88L100 88" stroke="#0a1730" strokeWidth="4" />
-                <path d="M28 0L28 100" stroke="#0a1730" strokeWidth="2.2" />
-                <path d="M54 0L54 100" stroke="#0a1730" strokeWidth="4.4" />
-                <path d="M80 0L80 100" stroke="#0a1730" strokeWidth="2.2" />
-                <path d="M-5 72L103 24" stroke="#0a1730" strokeWidth="4.6" />
-                <path d="M102 78L24 -6" stroke="#0a1730" strokeWidth="2.8" />
+                <path d="M0 24L100 24" stroke="#0a1730" strokeWidth="4.6" />
+                <path d="M0 72L100 72" stroke="#0a1730" strokeWidth="4.6" />
+                <path d="M32 0L32 100" stroke="#0a1730" strokeWidth="4.4" />
+                <path d="M64 0L64 100" stroke="#0a1730" strokeWidth="4.4" />
               </g>
 
-              {/* Calles: calzada */}
+              {/* Avenidas principales: calzada */}
               <g strokeLinecap="round">
-                <path d="M0 20L100 20" stroke="#1c3355" strokeWidth="2.4" />
-                <path d="M0 44L100 44" stroke="#172843" strokeWidth="1.2" />
-                <path d="M0 66L100 66" stroke="#172843" strokeWidth="1.2" />
-                <path d="M0 88L100 88" stroke="#1c3355" strokeWidth="2.6" />
-                <path d="M28 0L28 100" stroke="#172843" strokeWidth="1.4" />
-                <path d="M54 0L54 100" stroke="#1c3355" strokeWidth="3" />
-                <path d="M80 0L80 100" stroke="#172843" strokeWidth="1.4" />
-                <path d="M-5 72L103 24" stroke="#223a60" strokeWidth="3.2" />
-                <path d="M102 78L24 -6" stroke="#1a2e4f" strokeWidth="2" />
+                <path d="M0 24L100 24" stroke="#1c3355" strokeWidth="3.2" />
+                <path d="M0 72L100 72" stroke="#1c3355" strokeWidth="3.2" />
+                <path d="M32 0L32 100" stroke="#1c3355" strokeWidth="3" />
+                <path d="M64 0L64 100" stroke="#1c3355" strokeWidth="3" />
               </g>
 
               {/* Avenidas principales: línea central */}
-              <g strokeLinecap="round" strokeDasharray="2.5 3">
-                <path d="M0 20L100 20" stroke="#7db4ff" strokeWidth="0.5" strokeOpacity="0.22" />
-                <path d="M0 88L100 88" stroke="#7db4ff" strokeWidth="0.5" strokeOpacity="0.22" />
-                <path d="M54 0L54 100" stroke="#7db4ff" strokeWidth="0.5" strokeOpacity="0.22" />
-                <path d="M-5 72L103 24" stroke="#7db4ff" strokeWidth="0.55" strokeOpacity="0.25" />
+              <g strokeLinecap="round" strokeDasharray="3 3">
+                <path d="M0 24L100 24" stroke="#7db4ff" strokeWidth="0.5" strokeOpacity="0.2" />
+                <path d="M0 72L100 72" stroke="#7db4ff" strokeWidth="0.5" strokeOpacity="0.2" />
+                <path d="M32 0L32 100" stroke="#7db4ff" strokeWidth="0.5" strokeOpacity="0.2" />
+                <path d="M64 0L64 100" stroke="#7db4ff" strokeWidth="0.5" strokeOpacity="0.2" />
               </g>
 
               {/* Puntos de interés */}
-              <circle cx="18" cy="34" r="0.55" fill="#7db4ff" opacity="0.35" />
-              <circle cx="76" cy="68" r="0.55" fill="#7db4ff" opacity="0.35" />
-              <circle cx="52" cy="84" r="0.55" fill="#7db4ff" opacity="0.35" />
+              <circle cx="14" cy="40" r="0.55" fill="#7db4ff" opacity="0.35" />
+              <circle cx="92" cy="30" r="0.55" fill="#7db4ff" opacity="0.35" />
+              <circle cx="18" cy="62" r="0.55" fill="#7db4ff" opacity="0.35" />
+              <circle cx="70" cy="84" r="0.55" fill="#7db4ff" opacity="0.35" />
             </svg>
 
             {/* Viñeta sutil del mapa */}
@@ -178,16 +153,18 @@ function PhoneMockup() {
             >
               <path
                 id="busRoute"
-                d="M22 78 C 34 70, 40 58, 52 50 S 68 36, 74 28"
+                d="M32 88 H64 V72 H88 V48 H64 V24 H40"
                 stroke="rgba(125,180,255,0.55)"
                 strokeWidth="2"
                 strokeDasharray="5 5"
+                strokeLinejoin="round"
               />
               <path
-                d="M22 78 C 34 70, 40 58, 52 50 S 68 36, 74 28"
+                d="M32 88 H64 V72 H88 V48 H64 V24 H40"
                 stroke="url(#routeGrad)"
                 strokeWidth="2.6"
                 strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <defs>
                 <linearGradient id="routeGrad" x1="0" y1="1" x2="1" y2="0">
@@ -202,7 +179,7 @@ function PhoneMockup() {
             </svg>
 
             {/* Destino con zona de alarma */}
-            <div className="absolute left-[74%] top-[28%] z-10 -translate-x-1/2 -translate-y-1/2">
+            <div className="absolute left-[40%] top-[24%] z-10 -translate-x-1/2 -translate-y-1/2">
               <span className="block h-16 w-16 rounded-full bg-sky-400/10 ring-2 ring-dashed ring-sky-300/40" />
               <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                 <MapPin
@@ -214,12 +191,12 @@ function PhoneMockup() {
             </div>
 
             {/* Etiqueta del destino */}
-            <span className="absolute left-[62%] top-[41%] z-10 rounded-md border border-white/10 bg-night-900/80 px-1.5 py-0.5 text-[9px] font-semibold text-ink-100 backdrop-blur-sm">
+            <span className="absolute left-[40%] top-[39%] z-10 -translate-x-1/2 rounded-md border border-white/10 bg-night-900/80 px-1.5 py-0.5 text-[9px] font-semibold text-ink-100 backdrop-blur-sm">
               Tu parada
             </span>
 
             {/* Punto de partida · posición GPS del usuario */}
-            <div className="absolute left-[22%] top-[78%] z-10 -translate-x-1/2 -translate-y-1/2">
+            <div className="absolute left-[32%] top-[88%] z-10 -translate-x-1/2 -translate-y-1/2">
               <span className="relative flex h-4 w-4 items-center justify-center">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-glow opacity-50" />
                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full border-2 border-night-900 bg-sky-glow shadow-[0_0_10px_rgba(56,189,248,0.9)]" />
@@ -245,13 +222,15 @@ function PhoneMockup() {
                   <feGaussianBlur stdDeviation="2.2" />
                 </filter>
               </defs>
-              <g>
+              <g className="bus-fade">
                 <animateMotion
-                  dur="4.2s"
+                  dur="10s"
                   repeatCount="indefinite"
-                  calcMode="paced"
+                  calcMode="linear"
+                  keyPoints="0;0.9;1;1;1"
+                  keyTimes="0;0.8;0.88;0.93;1"
                   rotate="auto"
-                  path="M22 78 C 34 70, 40 58, 52 50 S 68 36, 74 28"
+                  path="M32 88 H64 V72 H88 V48 H64 V24 H40"
                 />
                 <circle r="10.5" fill="#2563eb" opacity="0.35" filter="url(#busGlow)" />
                 <g transform="translate(-7 -7)">

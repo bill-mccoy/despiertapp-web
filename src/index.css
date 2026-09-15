@@ -69,6 +69,30 @@ body {
   }
 }
 
+/* Recorrido del bus: aparece al inicio, llega al destino, se detiene y se desvanece
+   para reiniciar en bucle sin cortes bruscos. */
+@keyframes bus-fade {
+  0% {
+    opacity: 0;
+  }
+  3% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 1;
+  }
+  94% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.bus-fade {
+  animation: bus-fade 10s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -79,5 +103,9 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+  .bus-fade {
+    animation: none;
+    opacity: 1;
   }
 }
