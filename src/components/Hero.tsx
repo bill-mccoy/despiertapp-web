@@ -27,12 +27,12 @@ function PhoneMockup() {
       <div className="absolute left-1/2 top-1/2 -z-10 h-[120%] w-[130%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(37,99,235,0.32),transparent_70%)] blur-2xl" />
 
       <div className="relative rounded-[3rem] border border-white/15 bg-gradient-to-b from-night-600 to-night-900 p-3 shadow-[0_40px_120px_-30px_rgba(37,99,235,0.55)]">
-        <div className="relative overflow-hidden rounded-[2.4rem] border border-white/10 bg-night-800">
+        <div className="relative overflow-hidden rounded-[2.75rem] border border-white/10 bg-night-800">
           {/* Notch */}
-          <div className="absolute left-1/2 top-2.5 z-20 h-5 w-24 -translate-x-1/2 rounded-full bg-black/80" />
+          <div className="absolute left-1/2 top-3.5 z-20 h-5 w-24 -translate-x-1/2 rounded-full bg-black/80" />
 
           {/* Barra de estado */}
-          <div className="flex items-center justify-between px-6 pb-1.5 pt-3 text-[10px] font-semibold text-ink-200">
+          <div className="flex items-center justify-between px-5 pb-1.5 pt-4 text-[10px] font-semibold text-ink-200">
             <span>9:41</span>
             <span className="flex items-center gap-1.5">
               <Signal className="h-3 w-3" />
@@ -46,7 +46,7 @@ function PhoneMockup() {
           </div>
 
           {/* Mapa abstracto */}
-          <div className="relative h-[300px] overflow-hidden sm:h-[330px]">
+          <div className="relative h-[280px] overflow-hidden rounded-[2.75rem] sm:h-[310px]">
             {/* Fondo del mapa */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#142d54] via-[#0b1c3d] to-[#081326]" />
             {/* Cuadrícula */}
@@ -131,8 +131,10 @@ function PhoneMockup() {
 
             {/* Chip de distancia restante */}
             <div className="absolute bottom-3 left-3 flex items-center gap-1.5 rounded-lg border border-white/10 bg-night-900/80 px-2.5 py-1.5 text-[10px] font-bold text-white backdrop-blur-md">
-              <Navigation className="h-3 w-3 text-sky-glow" />
-              1,2 km
+              <span className="flex h-3 w-3 shrink-0 items-center justify-center">
+                <Navigation className="h-3 w-3 text-sky-glow" />
+              </span>
+              <span className="leading-none">1,2 km</span>
             </div>
 
             {/* Chip del radio de alarma */}
@@ -147,12 +149,12 @@ function PhoneMockup() {
             <span className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-400 to-blue-600 text-white shadow-glow-blue">
               <BellRing className="h-5 w-5" />
             </span>
-            <div className="min-w-0">
+            <div className="flex min-w-0 flex-1 flex-col">
               <p className="flex items-center gap-1.5 text-[13px] font-bold text-white">
                 Alarma lista
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_rgba(52,211,153,0.8)]" />
               </p>
-              <p className="truncate text-[11px] text-ink-300">
+              <p className="whitespace-normal text-[11px] leading-tight text-ink-300">
                 Sonará antes de tu parada · «Te aviso al llegar»
               </p>
             </div>
