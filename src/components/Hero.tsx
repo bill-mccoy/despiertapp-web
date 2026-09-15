@@ -7,6 +7,7 @@ import {
   MapPin,
   Navigation,
   Signal,
+  Wifi,
 } from "lucide-react";
 import { useEffect } from "react";
 import { PrimaryButton, GhostButton } from "./Buttons";
@@ -34,13 +35,12 @@ function PhoneMockup() {
           {/* Barra de estado */}
           <div className="flex items-center justify-between px-5 pb-1.5 pt-4 text-[10px] font-semibold text-ink-200">
             <span>9:41</span>
-            <span className="flex items-center gap-1.5">
-              <Signal className="h-3 w-3" />
-              <span className="flex h-1.5 w-5 items-center rounded-full border border-ink-400 p-px">
-                <span className="h-full flex-1 rounded-full bg-white" />
-              </span>
-              <span className="h-2 w-4 rounded-[3px] border border-ink-400 p-px">
-                <span className="block h-full w-[70%] rounded-[2px] bg-emerald-400" />
+            <span className="flex items-center gap-2">
+              <Signal className="h-3 w-3" strokeWidth={2.5} />
+              <Wifi className="h-3 w-3" strokeWidth={2.5} />
+              <span className="relative flex h-3 w-[18px] items-center rounded-[3.5px] border border-ink-400 p-[2px]">
+                <span className="block h-full w-[75%] rounded-[1.5px] bg-emerald-400" />
+                <span className="absolute -right-[1.5px] top-1/2 h-[5px] w-[2px] -translate-y-1/2 rounded-r-full bg-ink-400" />
               </span>
             </span>
           </div>
@@ -48,30 +48,136 @@ function PhoneMockup() {
           {/* Mapa abstracto */}
           <div className="relative h-[280px] overflow-hidden rounded-[2.75rem] sm:h-[310px]">
             {/* Fondo del mapa */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#142d54] via-[#0b1c3d] to-[#081326]" />
-            {/* Cuadrícula */}
-            <div className="absolute inset-0 opacity-30 [background-image:linear-gradient(rgba(148,163,184,0.14)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.14)_1px,transparent_1px)] [background-size:46px_46px]" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#152a57] via-[#0c1a38] to-[#071020]" />
 
-            {/* Calles (bandas rotadas) */}
-            <div className="absolute left-[-10%] top-[42%] h-4 w-[120%] -rotate-6 rounded-full bg-[#1c3355]/70" />
-            <div className="absolute left-[-10%] top-[62%] h-3.5 w-[120%] rotate-3 rounded-full bg-[#1c3355]/70" />
-            <div className="absolute left-[30%] top-[-10%] h-[120%] w-3.5 -rotate-6 rounded-full bg-[#1c3355]/70" />
-            <div className="absolute left-[66%] top-[-10%] h-[120%] w-3 -rotate-3 rounded-full bg-[#1c3355]/70" />
-
-            {/* Manzanas (edificios) */}
-            <div className="absolute left-8 top-12 h-14 w-16 rounded-xl bg-white/[0.06] ring-1 ring-white/10" />
-            <div className="absolute right-6 top-14 h-12 w-14 rounded-xl bg-white/[0.06] ring-1 ring-white/10" />
-            <div className="absolute bottom-10 left-6 h-12 w-14 rounded-xl bg-white/[0.06] ring-1 ring-white/10" />
-            <div className="absolute right-8 bottom-16 h-14 w-16 rounded-xl bg-white/[0.06] ring-1 ring-white/10" />
-
-            {/* Recorrido del bus (punto de partida → parada) */}
+            {/* Red de calles y manzanas (estilo navegación, modo oscuro) */}
             <svg
               viewBox="0 0 100 100"
               preserveAspectRatio="none"
               className="absolute inset-0 h-full w-full"
               fill="none"
+              aria-hidden
+            >
+              {/* Río */}
+              <path
+                d="M56 -6 C62 6,58 18,70 30 S86 46,106 52"
+                stroke="#0f3a68"
+                strokeWidth="5"
+                strokeLinecap="round"
+                strokeOpacity="0.55"
+              />
+              <path
+                d="M56 -6 C62 6,58 18,70 30 S86 46,106 52"
+                stroke="#1b4a80"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeOpacity="0.45"
+              />
+
+              {/* Manzanas (bloques de ciudad) */}
+              <g
+                fill="#ffffff"
+                fillOpacity="0.04"
+                stroke="#7db4ff"
+                strokeOpacity="0.07"
+                strokeWidth="0.4"
+              >
+                <rect x="2" y="3" width="12" height="13" rx="1.5" />
+                <rect x="16" y="3" width="10" height="13" rx="1.5" />
+                <rect x="30" y="3" width="10" height="13" rx="1.5" />
+                <rect x="42" y="3" width="10" height="13" rx="1.5" />
+                <rect x="56" y="3" width="10" height="13" rx="1.5" />
+                <rect x="68" y="3" width="10" height="13" rx="1.5" />
+                <rect x="2" y="22" width="24" height="20" rx="2" />
+                <rect x="30" y="22" width="9" height="20" rx="1.5" />
+                <rect x="41" y="22" width="11" height="20" rx="1.5" />
+                <rect x="56" y="22" width="10" height="20" rx="1.5" />
+                <rect x="68" y="22" width="10" height="20" rx="1.5" />
+                <rect x="82" y="22" width="15" height="20" rx="2" />
+                <rect x="2" y="45" width="24" height="19" rx="2" />
+                <rect x="30" y="45" width="9" height="19" rx="1.5" />
+                <rect x="41" y="45" width="11" height="19" rx="1.5" />
+                <rect x="56" y="45" width="10" height="19" rx="1.5" />
+                <rect x="68" y="45" width="10" height="19" rx="1.5" />
+                <rect x="2" y="67" width="11" height="18" rx="1.5" />
+                <rect x="15" y="67" width="11" height="18" rx="1.5" />
+                <rect x="30" y="67" width="9" height="18" rx="1.5" />
+                <rect x="41" y="67" width="11" height="18" rx="1.5" />
+                <rect x="56" y="67" width="10" height="18" rx="1.5" />
+                <rect x="68" y="67" width="10" height="18" rx="1.5" />
+                <rect x="82" y="67" width="15" height="18" rx="2" />
+                <rect x="2" y="90" width="24" height="8" rx="1.5" />
+                <rect x="30" y="90" width="22" height="8" rx="1.5" />
+                <rect x="56" y="90" width="22" height="8" rx="1.5" />
+                <rect x="82" y="90" width="15" height="8" rx="1.5" />
+              </g>
+
+              {/* Parque */}
+              <rect
+                x="83"
+                y="47"
+                width="13"
+                height="15"
+                rx="3"
+                fill="#0c2a20"
+                stroke="#1d5342"
+                strokeOpacity="0.55"
+                strokeWidth="0.5"
+              />
+              <circle cx="88" cy="54" r="1.5" fill="#1d5342" opacity="0.5" />
+
+              {/* Calles: borde exterior */}
+              <g strokeLinecap="round">
+                <path d="M0 20L100 20" stroke="#0a1730" strokeWidth="3.8" />
+                <path d="M0 44L100 44" stroke="#0a1730" strokeWidth="2.2" />
+                <path d="M0 66L100 66" stroke="#0a1730" strokeWidth="2.2" />
+                <path d="M0 88L100 88" stroke="#0a1730" strokeWidth="4" />
+                <path d="M28 0L28 100" stroke="#0a1730" strokeWidth="2.2" />
+                <path d="M54 0L54 100" stroke="#0a1730" strokeWidth="4.4" />
+                <path d="M80 0L80 100" stroke="#0a1730" strokeWidth="2.2" />
+                <path d="M-5 72L103 24" stroke="#0a1730" strokeWidth="4.6" />
+                <path d="M102 78L24 -6" stroke="#0a1730" strokeWidth="2.8" />
+              </g>
+
+              {/* Calles: calzada */}
+              <g strokeLinecap="round">
+                <path d="M0 20L100 20" stroke="#1c3355" strokeWidth="2.4" />
+                <path d="M0 44L100 44" stroke="#172843" strokeWidth="1.2" />
+                <path d="M0 66L100 66" stroke="#172843" strokeWidth="1.2" />
+                <path d="M0 88L100 88" stroke="#1c3355" strokeWidth="2.6" />
+                <path d="M28 0L28 100" stroke="#172843" strokeWidth="1.4" />
+                <path d="M54 0L54 100" stroke="#1c3355" strokeWidth="3" />
+                <path d="M80 0L80 100" stroke="#172843" strokeWidth="1.4" />
+                <path d="M-5 72L103 24" stroke="#223a60" strokeWidth="3.2" />
+                <path d="M102 78L24 -6" stroke="#1a2e4f" strokeWidth="2" />
+              </g>
+
+              {/* Avenidas principales: línea central */}
+              <g strokeLinecap="round" strokeDasharray="2.5 3">
+                <path d="M0 20L100 20" stroke="#7db4ff" strokeWidth="0.5" strokeOpacity="0.22" />
+                <path d="M0 88L100 88" stroke="#7db4ff" strokeWidth="0.5" strokeOpacity="0.22" />
+                <path d="M54 0L54 100" stroke="#7db4ff" strokeWidth="0.5" strokeOpacity="0.22" />
+                <path d="M-5 72L103 24" stroke="#7db4ff" strokeWidth="0.55" strokeOpacity="0.25" />
+              </g>
+
+              {/* Puntos de interés */}
+              <circle cx="18" cy="34" r="0.55" fill="#7db4ff" opacity="0.35" />
+              <circle cx="76" cy="68" r="0.55" fill="#7db4ff" opacity="0.35" />
+              <circle cx="52" cy="84" r="0.55" fill="#7db4ff" opacity="0.35" />
+            </svg>
+
+            {/* Viñeta sutil del mapa */}
+            <div className="absolute inset-0 bg-[radial-gradient(130%_130%_at_50%_38%,transparent_42%,rgba(2,6,20,0.5)_100%)]" />
+
+            {/* Recorrido del bus (punto de partida → parada) */}
+            <svg
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+              className="absolute inset-0 z-[2] h-full w-full"
+              fill="none"
             >
               <path
+                id="busRoute"
                 d="M22 78 C 34 70, 40 58, 52 50 S 68 36, 74 28"
                 stroke="rgba(125,180,255,0.55)"
                 strokeWidth="2"
@@ -88,49 +194,84 @@ function PhoneMockup() {
                   <stop offset="0" stopColor="#2563EB" />
                   <stop offset="1" stopColor="#7DD3FC" />
                 </linearGradient>
+                <linearGradient id="busGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stopColor="#3b82f6" />
+                  <stop offset="1" stopColor="#1e4fd0" />
+                </linearGradient>
               </defs>
             </svg>
 
             {/* Destino con zona de alarma */}
-            <div className="absolute left-[71%] top-[23%] -translate-x-1/2 -translate-y-1/2">
-              <span className="absolute left-1/2 top-1/2 inline-flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-sky-400/10 ring-2 ring-dashed ring-sky-300/40" />
-              <MapPin
-                className="relative h-7 w-7 -translate-x-1/2 -translate-y-1/2 text-sky-glow drop-shadow-[0_4px_10px_rgba(56,189,248,0.6)]"
-                size={28}
-                fill="rgba(56,189,248,0.4)"
-              />
-            </div>
-
-            {/* Etiqueta del destino */}
-            <span className="absolute left-[62%] top-[33%] rounded-md border border-white/10 bg-night-900/80 px-1.5 py-0.5 text-[9px] font-semibold text-ink-100 backdrop-blur-sm">
-              Tu parada
-            </span>
-
-            {/* Posición del usuario */}
-            <div className="absolute left-[19%] top-[76%] -translate-x-1/2 -translate-y-1/2">
-              <span className="relative flex h-3.5 w-3.5 items-center justify-center">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-glow opacity-60" />
-                <span className="relative inline-flex h-3 w-3 rounded-full border-2 border-white bg-sky-glow shadow-[0_0_10px_rgba(56,189,248,0.8)]" />
+            <div className="absolute left-[74%] top-[28%] z-10 -translate-x-1/2 -translate-y-1/2">
+              <span className="block h-16 w-16 rounded-full bg-sky-400/10 ring-2 ring-dashed ring-sky-300/40" />
+              <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                <MapPin
+                  className="relative h-7 w-7 text-sky-glow drop-shadow-[0_4px_10px_rgba(56,189,248,0.6)]"
+                  size={28}
+                  fill="rgba(56,189,248,0.4)"
+                />
               </span>
             </div>
 
-            {/* Bus en movimiento (animado por keyframes, sin conflicto de translate) */}
-            <motion.div
-              animate={{ left: "55%", top: "43%" }}
-              transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute left-1/2 top-1/2 z-10"
+            {/* Etiqueta del destino */}
+            <span className="absolute left-[62%] top-[41%] z-10 rounded-md border border-white/10 bg-night-900/80 px-1.5 py-0.5 text-[9px] font-semibold text-ink-100 backdrop-blur-sm">
+              Tu parada
+            </span>
+
+            {/* Punto de partida · posición GPS del usuario */}
+            <div className="absolute left-[22%] top-[78%] z-10 -translate-x-1/2 -translate-y-1/2">
+              <span className="relative flex h-4 w-4 items-center justify-center">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-glow opacity-50" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full border-2 border-night-900 bg-sky-glow shadow-[0_0_10px_rgba(56,189,248,0.9)]" />
+              </span>
+            </div>
+
+            {/* Bus en movimiento: recorre la línea desde el inicio hacia el destino (SMIL) */}
+            <svg
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+              className="pointer-events-none absolute inset-0 z-30 h-full w-full"
+              fill="none"
+              aria-hidden
             >
-              <motion.div
-                animate={{ x: [0, 4, 0] }}
-                transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-                className="flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-xl border border-white/25 bg-gradient-to-br from-blue-500 to-blue-700 shadow-[0_6px_16px_rgba(37,99,235,0.5)]"
-              >
-                <Bus className="h-4.5 w-4.5 text-white" />
-              </motion.div>
-            </motion.div>
+              <defs>
+                <filter
+                  id="busGlow"
+                  x="-60%"
+                  y="-60%"
+                  width="220%"
+                  height="220%"
+                >
+                  <feGaussianBlur stdDeviation="2.2" />
+                </filter>
+              </defs>
+              <g>
+                <animateMotion
+                  dur="4.2s"
+                  repeatCount="indefinite"
+                  calcMode="paced"
+                  rotate="auto"
+                  path="M22 78 C 34 70, 40 58, 52 50 S 68 36, 74 28"
+                />
+                <circle r="10.5" fill="#2563eb" opacity="0.35" filter="url(#busGlow)" />
+                <g transform="translate(-7 -7)">
+                  <rect
+                    width="14"
+                    height="14"
+                    rx="3.4"
+                    fill="url(#busGrad)"
+                    stroke="rgba(255,255,255,0.3)"
+                    strokeWidth="0.5"
+                  />
+                  <g transform="translate(2.4 2.4)">
+                    <Bus size={9.2} strokeWidth={2.2} className="text-white" />
+                  </g>
+                </g>
+              </g>
+            </svg>
 
             {/* Chip de distancia restante */}
-            <div className="absolute bottom-3 left-3 flex items-center gap-1.5 rounded-lg border border-white/10 bg-night-900/80 px-2.5 py-1.5 text-[10px] font-bold text-white backdrop-blur-md">
+            <div className="absolute bottom-3 left-3 z-10 flex items-center gap-1.5 rounded-lg border border-white/10 bg-night-900/80 px-2.5 py-1.5 text-[10px] font-bold text-white backdrop-blur-md">
               <span className="flex h-3 w-3 shrink-0 items-center justify-center">
                 <Navigation className="h-3 w-3 text-sky-glow" />
               </span>
@@ -138,7 +279,7 @@ function PhoneMockup() {
             </div>
 
             {/* Chip del radio de alarma */}
-            <div className="absolute bottom-3 right-3 flex items-center gap-1.5 rounded-lg border border-white/10 bg-night-900/80 px-2.5 py-1.5 text-[10px] font-bold text-ink-100 backdrop-blur-md">
+            <div className="absolute bottom-3 right-3 z-10 flex items-center gap-1.5 rounded-lg border border-white/10 bg-night-900/80 px-2.5 py-1.5 text-[10px] font-bold text-ink-100 backdrop-blur-md">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
               Radio 300 m
             </div>
