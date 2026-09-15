@@ -34,7 +34,7 @@ const FEATURES: Feature[] = [
       "Un rastreo GPS adaptativo ajusta la precisión según tu cercanía al destino: lejos usa menos energía y cerca se afina. Un servicio en segundo plano mantiene la geocerca sin drenar el teléfono.",
     icon: BatteryCharging,
     accent: "from-emerald-400 to-teal-600",
-    glance: "GPS adaptativo · servicio en segundo plano",
+    glance: "GPS adaptativo · segundo plano",
   },
   {
     title: "Modo PRO",
@@ -101,11 +101,11 @@ function FeatureCard({ feature }: { feature: Feature }) {
       className="group relative h-full rounded-3xl border border-white/10 bg-white/[0.04] p-1 shadow-[0_20px_60px_-24px_rgba(0,0,0,0.8)] backdrop-blur-xl hover:border-white/20 hover:bg-white/[0.06]"
     >
       <div className="flex h-full flex-col rounded-[1.4rem] p-6">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-4">
           <span className={hoverClass}>
             <feature.icon className="h-5.5 w-5.5" strokeWidth={2.1} />
           </span>
-          <span className="text-[11px] font-semibold uppercase tracking-wider text-ink-400">
+          <span className="text-right text-[11px] font-semibold uppercase leading-snug tracking-wider text-ink-400">
             {feature.glance}
           </span>
         </div>

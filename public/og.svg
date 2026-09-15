@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1c3d"/>
+      <stop offset="0.5" stop-color="#070b16"/>
+      <stop offset="1" stop-color="#04060d"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0.35" cy="0.25" r="0.65">
+      <stop offset="0" stop-color="#2563EB" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#2563EB" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.8" cy="0.85" r="0.6">
+      <stop offset="0" stop-color="#22D3EE" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#38BDF8"/>
+      <stop offset="0.5" stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#1d3f9e"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow1)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
+
+  <g fill="none" stroke="#94a3b8" stroke-opacity="0.1">
+    <circle cx="100" cy="110" r="1.5"/><circle cx="220" cy="70" r="1.5"/>
+    <circle cx="360" cy="120" r="1.5"/><circle cx="480" cy="60" r="1.5"/>
+    <circle cx="620" cy="130" r="1.5"/><circle cx="760" cy="80" r="1.5"/>
+    <circle cx="900" cy="110" r="1.5"/><circle cx="1040" cy="70" r="1.5"/>
+    <circle cx="1150" cy="140" r="1.5"/><circle cx="180" cy="200" r="1.5"/>
+    <circle cx="300" cy="250" r="1.5"/><circle cx="520" cy="210" r="1.5"/>
+    <circle cx="700" cy="240" r="1.5"/><circle cx="880" cy="200" r="1.5"/>
+    <circle cx="1020" cy="250" r="1.5"/><circle cx="1140" cy="300" r="1.5"/>
+  </g>
+
+  <g font-family="'Inter', Helvetica, Arial, sans-serif">
+    <text x="120" y="120" font-size="26" font-weight="700" letter-spacing="10" fill="#93C5FD">DESPIERTAPP</text>
+    <text x="120" y="184" font-size="60" font-weight="800" fill="#FFFFFF">Tu alarma GPS para no</text>
+    <text x="120" y="250" font-size="60" font-weight="800" fill="#FFFFFF">pasarte de parada</text>
+    <text x="120" y="322" font-size="30" fill="#AEBBD4">Despierta justo antes de llegar a tu destino,</text>
+    <text x="120" y="360" font-size="30" fill="#AEBBD4">aunque la pantalla esté bloqueada.</text>
+
+    <circle cx="120" cy="452" r="100" fill="url(#tile)"/>
+    <path d="M57 446Q52 419 75 419h118q22 0 22 22v20q0 23-23 23H78q-22 0-22-22V446z" fill="#FFFFFF" opacity="0.92"/>
+    <circle cx="102" cy="464" r="11" fill="#2563EB"/>
+    <circle cx="174" cy="464" r="11" fill="#2563EB"/>
+    <rect x="57" y="482" width="22" height="34" rx="7" fill="#2563EB" transform="rotate(-8 57 482)"/>
+    <path d="M57 446Q52 419 75 419h73q-29 0-31 15l-21 68Q67 529 47 526Q36 522 40 505z" fill="#FFFFFF" fill-opacity="0.25"/>
+  </g>
+</svg>
